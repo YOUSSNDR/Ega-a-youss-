@@ -24,3 +24,13 @@ The equipment i have for the following are :
 - Module 9 DoF BNO055 ADA2472
 
 Some more equipment could be added if needed
+
+### How will i work
+
+- First we will be learning about ROS 2 
+
+- Apply the learnt skills on the projet 
+
+- Then we will be working on machine vision
+
+- others steps could be added depending on how fast i work
