@@ -8,4 +8,4 @@ For the control of the robot we will be using ROS 2 wich is used a lot in the ro
 We will be using diffrent online tutorials.
 
 #### ROS 2 install
-To install ROS 2 we use the following link  which give us documentation an tutorials for ROS 2. [ROS 2 install](https://docs.ros.org/en/jazzy/index.html).
+To install ROS 2 we use the following link  which give us documentation an tutorials for ROS 2. [ROS 2 install](https://docs.ros.org/en/iron/Tutorials.html).
