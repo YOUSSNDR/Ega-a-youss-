@@ -24,3 +24,49 @@ to [acces ros 2](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Confi
 The ROS 2 development environment needs to be correctly configured before use. This can be done in two ways: either sourcing the setup files in every new shell you open, or adding the source command to your startup script.
 
 If you ever face any problems locating or using packages with ROS 2, the first thing you should do is check your environment variables and ensure they are set to the version and distro you intended. (see the link above)
+
+
+### Turtlesim 
+turtlesim will be our trainingsubject more info on the install [here](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html).
+
+to run turtlesim (after installation): ```ros2 run turtlesim turtlesim_node``` 
+
+control basic turtle : ```ros2 run turtlesim turtle_teleop_key```
+
+to see nodes, topics services and action we can use the next commands:
+
+```ros2 node list```
+
+```ros2 topic list```
+
+```ros2 service list```
+
+```ros2 action list```
+
+we can add services by using ```rqt``` (it allow us for exemple to add a turtle)
+
+to control the new turtle: ```ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel``` (with turtle2 the second turtle name)
+
+
+### Nodes
+
+Each node in ROS should be responsible for a single, modular purpose, e.g. controlling the wheel motors or publishing the sensor data from a laser range-finder. Each node can send and receive data from other nodes via topics, services, actions, or parameters.
+
+The command ```ros2 run``` launches an executable from a package.
+full command:  ```ros2 run <package_name> <executable_name>```
+
+ex: ```ros2 run turtlesim turtlesim_node```
+
+To get the currently used nodes name use : ``` ros2 node list```
+
+Remapping allows to reassign default node properties (node name, topic namesd, service names... and also to custom values)
+
+to acces the informations about the nodes run : ```ros2 node info <node_name>``` 
+
+So a node is a fundamental ROS 2 element that serves a single, modular purpose in a robotics system.
+
+### Topics
+
+ROS 2 breaks complex systems down into many modular nodes. Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
+A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
+Topics are one of the main ways in which data is moved between nodes and therefore between different parts of the system.
