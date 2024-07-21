@@ -141,3 +141,48 @@ To start the same node using your saved parameter values, use:
 ```ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>```
 
 ### Actions
+
+[Actions](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html) are one of the communication types in ROS 2 and are intended for long running tasks. They consist of three parts: a goal, feedback, and a result.
+
+Actions are built on topics and services. Their functionality is similar to services, except actions can be canceled. They also provide steady feedback, as opposed to services which return a single response.
+
+Actions use a client-server model, similar to the publisher-subscriber model (described in the topics tutorial). An “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
+
+To see the list of actions a node provides:
+```ros2 node info <node_name>```
+
+To identify all the actions in the ROS graph, run the command: ```ros2 action list```
+
+Actions have types, similar to topics and services.To see them: ```ros2 action list -t```
+
+for more info on an action: ```ros2 action info <action_type_name>```
+
+to get the structure: ```ros2 interface show <action_type_name>```
+
+to send action goal from command: ```ros2 action send_goal <action_name> <action_type> <values>``` 
+
+Actions are like services that allow you to execute long running tasks, provide regular feedback, and are cancelable.
+
+A robot system would likely use actions for navigation. An action goal could tell a robot to travel to a position. While the robot navigates to the position, it can send updates along the way (i.e. feedback), and then a final result message once it’s reached its destination.
+
+### Tools
+
+#### rqt_console
+
+[rqt_console](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.html) is a GUI tool used to introspect log messages in ROS 2. Typically, log messages show up in your terminal. With rqt_console, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
+
+to start rqt_console: ```ros2 run rqt_console rqt_console```
+
+rqt_console can be very helpful if you need to closely examine the log messages from your system. You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of events leading up to that.
+
+#### launching nodes
+
+[Launch](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes.html) files allows you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
+
+Running a single launch file with the ```ros2 launch``` command will start up your entire system - all nodes and their configurations - at once.
+
+#### recording and playing back data
+
+[ros2 bag](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html) is a command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
+
+You can record data passed on topics in your ROS 2 system using the ros2 bag command. Whether you’re sharing your work with others or introspecting your own experiments, it’s a great tool to know about.
